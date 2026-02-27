@@ -5,9 +5,6 @@ import os
 TOKEN = os.getenv("TOKEN")
 bot = telebot.TeleBot(TOKEN)
 
-# Ссылка на картинку (RAW из GitHub)
-IMAGE_URL = "https://raw.githubusercontent.com/dorofeev200/vip-bot/main/iptv.jpeg"
-
 
 @bot.message_handler(commands=['start'])
 def start(message):
@@ -32,7 +29,7 @@ def start(message):
 
     markup = types.InlineKeyboardMarkup(row_width=2)
 
-    # Первый ряд (3 кнопки)
+    # Первый ряд
     markup.row(
         types.InlineKeyboardButton("Оплата", url="https://evgeshkawww.github.io/iptv/IPTV/index.html"),
         types.InlineKeyboardButton("370Р", url="https://evgeshkawww.github.io/iptv/IPTV/spisok.html"),
@@ -41,11 +38,13 @@ def start(message):
 
     # Второй ряд
     markup.row(
-        types.InlineKeyboardButton("🧪 Тест Серверов", url="https://evgeshkawww.github.io/iptv/IPTV/speed_test.html"),
-        types.InlineKeyboardButton("🔥 Lampa 4K", url="https://evgeshkawww.github.io/iptv/IPTV/index.html"),
+        types.InlineKeyboardButton("🧪 Тест Серверов",
+                                   url="https://evgeshkawww.github.io/iptv/IPTV/speed_test.html"),
+        types.InlineKeyboardButton("🔥 Lampa 4K",
+                                   url="https://evgeshkawww.github.io/iptv/IPTV/index.html"),
     )
 
-    # Остальные кнопки по одной строке
+    # Остальные кнопки
     markup.row(
         types.InlineKeyboardButton("📺 Видео Плей-Листа!! ВК",
                                    url="https://vkvideo.ru/video-145539285_456240212")
@@ -66,14 +65,15 @@ def start(message):
                                    url="https://t.me/Vip_kanal_TVV")
     )
 
-    # Отправляем картинку с подписью и кнопками
-    bot.send_photo(
-        message.chat.id,
-        IMAGE_URL,
-        caption=text,
-        parse_mode="Markdown",
-        reply_markup=markup
-    )
+    # Отправляем картинку из проекта
+    with open("iptv.jpeg", "rb") as photo:
+        bot.send_photo(
+            message.chat.id,
+            photo,
+            caption=text,
+            parse_mode="Markdown",
+            reply_markup=markup
+        )
 
 
 bot.infinity_polling()
