@@ -37,20 +37,27 @@ def start(message):
 
 def send_main_page(chat_id):
 
+    def send_main_page(chat_id):
+
     text = (
         "📡 *Как окунуться в МИР ТЕЛЕВИДЕНИЯ?* 📺\n\n"
-        "Выберите раздел 👇"
+        "1️⃣ Нужно определиться какой плей-лист вы хотите?\n"
+        "*Премиум или Простой*\n"
+        "Оплата от 2-х месяцев *ДЕШЕВЛЕ!!!*\n\n"
+        "2️⃣ Пройти Тест Серверов для Премиум телевидения.\n"
+        "Для обычного не нужно.\n\n"
+        "🔥 При покупке пакета Премиум\n"
+        "Плагин Lampa 4K получаете в подарок!\n\n"
+        "3️⃣ Сделать скриншот всего теста\n"
+        "4️⃣ Оплатить плейлист\n"
+        "5️⃣ Квитанцию отправить Админу\n\n"
+        "👇 После добавления получите плейлист"
     )
 
     markup = types.InlineKeyboardMarkup(row_width=2)
 
     markup.row(
-        types.InlineKeyboardButton("⭐ Премиум Плагин Lampa 4K",
-                                   callback_data="plugin_page")
-    )
-
-    markup.row(
-        types.InlineKeyboardButton("💳 Оплата",
+        types.InlineKeyboardButton("Оплата",
                                    url="https://evgeshkawww.github.io/iptv/IPTV/index.html"),
         types.InlineKeyboardButton("370Р",
                                    url="https://evgeshkawww.github.io/iptv/IPTV/spisok.html"),
@@ -60,17 +67,24 @@ def send_main_page(chat_id):
 
     markup.row(
         types.InlineKeyboardButton("🧪 Тест Серверов",
-                                   url="https://evgeshkawww.github.io/iptv/IPTV/speed_test.html")
+                                   url="https://evgeshkawww.github.io/iptv/IPTV/speed_test.html"),
+        types.InlineKeyboardButton("🔥 Lampa 4K",
+                                   callback_data="plugin_page")
     )
 
     markup.row(
-        types.InlineKeyboardButton("📺 Видео ВК",
+        types.InlineKeyboardButton("📺 Видео Плей-Листа ВК",
                                    url="https://vkvideo.ru/video-145539285_456240212")
     )
 
     markup.row(
-        types.InlineKeyboardButton("📺 Видео Rutube",
+        types.InlineKeyboardButton("📺 Видео Плей-Листа Rutube",
                                    url="https://rutube.ru/video/8f243e078d480f7422fc023906d1fd6e/?r=wd")
+    )
+
+    markup.row(
+        types.InlineKeyboardButton("⭐ Премиум Плагин Lampa 4K",
+                                   callback_data="plugin_page")
     )
 
     markup.row(
