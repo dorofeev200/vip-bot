@@ -16,16 +16,37 @@ def start(message):
 
 def send_main_page(chat_id):
 
-    text = "📡 *VIP IPTV & Плагины* 📺\n\nВыберите раздел 👇"
+    text = (
+        "📡 *Как окунуться в МИР ТЕЛЕВИДЕНИЯ?* 📺\n\n"
+        "Выберите нужный раздел 👇"
+    )
 
-    markup = types.InlineKeyboardMarkup()
+    markup = types.InlineKeyboardMarkup(row_width=2)
 
     markup.row(
         types.InlineKeyboardButton("⭐ Премиум Плагин Lampa 4K", callback_data="plugin_page")
     )
 
     markup.row(
-        types.InlineKeyboardButton("💳 Оплата IPTV", url="https://evgeshkawww.github.io/iptv/IPTV/index.html")
+        types.InlineKeyboardButton("💳 Оплата IPTV",
+                                   url="https://evgeshkawww.github.io/iptv/IPTV/index.html")
+    )
+
+    markup.row(
+        types.InlineKeyboardButton("🧪 Тест Серверов",
+                                   url="https://evgeshkawww.github.io/iptv/IPTV/speed_test.html")
+    )
+
+    markup.row(
+        types.InlineKeyboardButton("📺 Видео Плей-Листа ВК",
+                                   url="https://vkvideo.ru/video-145539285_456240212"),
+        types.InlineKeyboardButton("📺 Видео Плей-Листа Rutube",
+                                   url="https://rutube.ru/video/8f243e078d480f7422fc023906d1fd6e/?r=wd")
+    )
+
+    markup.row(
+        types.InlineKeyboardButton("👤 Связь Админ",
+                                   url="https://t.me/Vip_kanal_TVV")
     )
 
     with open("iptv.jpeg", "rb") as photo:
@@ -39,7 +60,7 @@ def send_main_page(chat_id):
 
 
 # ==============================
-# ВТОРАЯ СТРАНИЦА (ПЛАГИН)
+# ВТОРАЯ СТРАНИЦА — ПЛАГИН
 # ==============================
 def send_plugin_page(chat_id):
 
@@ -55,7 +76,6 @@ def send_plugin_page(chat_id):
         "Там есть инструкция по настройке\n"
         "и наша версия приложения Lampa\n"
         "для корректной работы плагинов.\n\n"
-        "Выбирайте удобный способ оплаты.\n"
         "Хорошего дня! ☀"
     )
 
